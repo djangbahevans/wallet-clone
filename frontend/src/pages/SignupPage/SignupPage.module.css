@@ -74,7 +74,7 @@
 }
 
 .logo {
-  background: url("../assets/images/logo.svg") 50%/contain no-repeat;
+  background: url("../../assets/images/logo.svg") 50%/contain no-repeat;
   width: 11.2rem;
   height: 2.8rem;
   position: absolute;
@@ -124,6 +124,13 @@
   font-weight: 500;
   font-size: 1.4rem;
   margin-bottom: 2.8rem;
+}
+
+.form p {
+  color: #7f8fa4;
+  font-size: 1.4rem;
+  margin-bottom: 1.4rem;
+  line-height: 2rem;
 }
 
 .form a:hover {

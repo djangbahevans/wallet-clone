@@ -1,11 +1,11 @@
 import { useState } from "react";
-import boardLogo from "../assets/images/board-logo.svg";
-import facebook from "../assets/images/facebook.svg";
-import google from "../assets/images/google.svg";
-import promoImage from "../assets/images/promo-image.png";
-import { Button, SocialButton, TextField } from "../components";
-import styles from "./LoginPage.module.css";
 import validator from "validator";
+import boardLogo from "../../assets/images/board-logo.svg";
+import facebook from "../../assets/images/facebook.svg";
+import google from "../../assets/images/google.svg";
+import promoImage from "../../assets/images/promo-image.png";
+import { Button, SocialButton, TextField } from "../../components";
+import styles from "./LoginPage.module.css";
 
 
 export const LoginPage = () => {
@@ -15,9 +15,6 @@ export const LoginPage = () => {
     if (validator.isEmpty(email)) {
       return "Email is required.";
     }
-    //  else if (!validator.isEmail(email)) {
-    // return "Email is invalid.";
-    // }
     return "";
   }
 
@@ -25,9 +22,6 @@ export const LoginPage = () => {
     if (validator.isEmpty(password)) {
       return "Password is required.";
     }
-    // else if(!validator.isLength(password, { min: 6, max: undefined })) {
-    // return "Password must be at least 6 characters.";
-    // }
     return "";
   }
 
