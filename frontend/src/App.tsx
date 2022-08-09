@@ -1,9 +1,9 @@
-import { LoginPage, SignupPage } from "./pages";
+import { LoginPage, ResetPasswordPage, SignupPage } from "./pages";
 
 export const App = () => {
   return (
     <div>
-      <SignupPage />
+      <ResetPasswordPage />
     </div>
   );
 }
