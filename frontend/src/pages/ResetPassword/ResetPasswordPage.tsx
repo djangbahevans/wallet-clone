@@ -1,10 +1,8 @@
 import { useState } from "react";
 import validator from "validator";
 import boardLogo from "../../assets/images/board-logo.svg";
-import facebook from "../../assets/images/facebook.svg";
-import google from "../../assets/images/google.svg";
 import promoImage from "../../assets/images/promo-image.png";
-import { Button, SocialButton, TextField } from "../../components";
+import { Button, TextField } from "../../components";
 import styles from "./ResetPasswordPage.module.css";
 
 
