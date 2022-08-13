@@ -1,9 +1,17 @@
-import { LoginPage, ResetPasswordPage, SignupPage } from "./pages";
+import { AuthProvider } from "./contexts";
+import { AppRouter } from "./router";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
+
+const client = new QueryClient();
 
 export const App = () => {
   return (
     <div>
-      <ResetPasswordPage />
+      <QueryClientProvider client={client}>
+        <AuthProvider>
+          <AppRouter />
+        </AuthProvider>
+      </QueryClientProvider>
     </div>
   );
 }

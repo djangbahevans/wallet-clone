@@ -5,11 +5,13 @@ import facebook from "../../assets/images/facebook.svg";
 import google from "../../assets/images/google.svg";
 import promoImage from "../../assets/images/promo-image.png";
 import { Button, SocialButton, TextField } from "../../components";
+import { useAuth } from "../../contexts";
 import styles from "./LoginPage.module.css";
 
 
 export const LoginPage = () => {
   const [errors, setErrors] = useState({ email: "", password: "" });
+  const { login } = useAuth()
 
   const validateEmail = (email: string) => {
     if (validator.isEmpty(email)) {
@@ -34,14 +36,16 @@ export const LoginPage = () => {
     e.preventDefault();
     const email = (e.currentTarget.elements[0] as HTMLInputElement).value
     const password = (e.currentTarget.elements[1] as HTMLInputElement).value
-    const emailValidation = validateEmail(email);
-    const passwordValidation = validatePassword(password);
+    const errors = {
+      email: validateEmail(email),
+      password: validatePassword(password),
+    };
 
-    if (emailValidation || passwordValidation) {
-      return setErrors({ email: emailValidation, password: passwordValidation });
+    if (Object.values(errors).every(error => error === "")) {
+      login({ email, password });
+    } else {
+      setErrors(errors);
     }
-
-    console.log(`Email: ${email} Password: ${password}`);
   }
 
   return (
@@ -67,7 +71,7 @@ export const LoginPage = () => {
               <form className={styles.form} onSubmit={handleSubmit}>
                 <h1 className={styles["log-in"]}>Log in</h1>
                 <TextField name="email" label="Email" autoComplete="email" error={errors.email} onChange={handleChange("email")} autoFocus />
-                <TextField name="password" label="Password" autoComplete="current-password" error={errors.password} onChange={handleChange("password")} />
+                <TextField name="password" label="Password" autoComplete="current-password" error={errors.password} onChange={handleChange("password")} type="password" />
                 <a href="/reset-password">Lost password?</a>
                 <Button label="Log In" />
               </form>
