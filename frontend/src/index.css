@@ -22,3 +22,8 @@ code {
 .title-case {
   text-transform: capitalize;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

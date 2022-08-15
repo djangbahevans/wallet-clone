@@ -5,8 +5,8 @@ type Props = {
   label: string;
 } & React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
-export const Button = ({label}: Props) => {
+export const Button = ({ label, className }: Props) => {
   return (
-    <button className={styles.button}>{label}</button>
+    <button className={`${styles.button} ${className}`}>{label}</button>
   );
 }
